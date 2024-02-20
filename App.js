@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import FormScreen from './components/New';
+import ListScreen from './components/Books';
+import EditScreen from './components/Update';
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Libros" component={ListScreen} options={({ navigation, route }) => ({
+          headerRight: () => (
+            <Button title="Nuevo lirbo" onPress={() => { navigation.navigate("Nuevo") }} />
+          )
+        })} />
+        <Stack.Screen name="Nuevo" component={FormScreen} />
+        <Stack.Screen name="Modificar" component={EditScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
