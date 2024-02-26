@@ -11,7 +11,7 @@ const EditScreen = ({ navigation }) => {
 
     const editBook = async (values) => {
         await updateItem(values.id, values);
-        navigation.navigate("List");
+        navigation.navigate("Libros");
     }
 
     return (

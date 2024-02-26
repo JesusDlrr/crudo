@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Text, Touchable, View } from 'react-native';
-import StudentRow from '../studentRow';
 import { Button, ListItem } from '@rneui/themed';
 import { deleteItem, loadItemsFromStorage } from './Data';
 import { useIsFocused } from '@react-navigation/native';

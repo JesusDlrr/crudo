@@ -9,7 +9,7 @@ const FormScreen = ({ navigation }) => {
 	const newBook = async (values) => {
 		let books = await loadItemsFromStorage();
 		await addItem({ id: books.length, ...values });
-		navigation.navigate("List");
+		navigation.navigate("Libros");
 	}
 
 	return (
